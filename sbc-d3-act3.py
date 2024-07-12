@@ -1,4 +1,4 @@
-def custom_tokenize(word):
+def subword_tokenize(word):
     # Define the prefixes and suffixes to be checked
     prefixes = ["un", "in", "dis", "re", "pre", "mis"]
     suffixes = ["able", "ing", "ed", "tion", "ly"]
@@ -12,15 +12,14 @@ def custom_tokenize(word):
     for suffix in suffixes:
         if word.endswith(suffix):
             return [word[:-len(suffix)], "##" + suffix]
-    
-    # If no prefix or suffix is found, return the word as it is
+            
     return [word]
 
 # Input word
 word = input("Enter a word: ")
 
 # Tokenize the word
-tokens = custom_tokenize(word)
+tokens = subword_tokenize(word)
 
 # Print the tokens
 print(tokens)
